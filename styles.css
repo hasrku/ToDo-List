@@ -1,9 +1,23 @@
 :root{
     --background: rgb(195, 195, 195);
+    --strike: rgb(183, 183, 183);
     --page-color: #ffffff;
+    --sec-color: rgb(216, 216, 216);
+    --tert-color:rgb(255, 255, 255);
     --text-color:rgb(0, 0, 0);
+    --shadow-color:rgba(0, 0, 0, 0);
+    --icon-background: rgb(74, 74, 74);
 }
-
+.darkmode{
+    --background: #282828;
+    --strike: rgb(90, 90, 90);
+    --page-color: #282828;
+    --sec-color: rgb(102, 102, 102);
+    --tert-color:rgb(74, 74, 74);
+    --text-color:rgb(255, 255, 255);
+    --shadow-color:rgb(97 97 97);
+    --icon-background: rgb(255, 255, 255);
+}
 *{
     margin: 0;
     padding: 0;
@@ -27,6 +41,7 @@
     flex-direction: column;
     position: relative;
     padding-bottom: 40px;
+    box-shadow: 0px 0px 10px 3px var(--shadow-color);
 }
 .heading p{
     font-family: amatic-bold;
@@ -34,6 +49,40 @@
     font-weight: 900;
     text-align: center;
     margin-top: 10px;
+    color: var(--text-color);
+    
+}
+#theme-switch{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    padding: 5px;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--icon-background);
+    transition: 0.2s all ease ;
+    box-shadow: 0px 0px 5px 1px black;
+}
+#theme-switch:hover{
+    scale: 1.05;
+}#theme-switch:active{
+    scale: 0.95;
+}
+#theme-switch svg{
+    fill: var(--page-color);
+}
+#theme-switch svg:last-child{
+    display: none;
+}
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+.darkmode #theme-switch svg:last-child{
+    fill: var(--page-color);
+    display: block;
 }
 .arrow{
     width: 178px;
@@ -52,7 +101,9 @@
     position: relative;
     width: 30vw;
     outline: none;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    background-color: var(--page-color);
     border-radius: 7px;
     padding: 5px 15px;
     font-size: 1.7rem;
@@ -65,7 +116,7 @@
     left: 3%;
     font-size: 1.6rem;
     background-color: var(--page-color);
-    color: #00000061;
+    color: var(--text-color);
     transition: all ease 0.3s;
 }
 .input-field input:focus + .placeIn{
@@ -73,7 +124,7 @@
     left: 2.7%;
     width: 41px;
     text-align: center;
-    color: black;
+    color: var(--text-color);
     font-size: 0.9rem;
 }
 .input-field button{
@@ -81,16 +132,16 @@
     padding: 7px 8px;
     font-size: 1.7rem;
     border-radius: 7px;
-    border: 1px solid black;
-    background-color: var(--background);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    background-color: var(--tert-color);
     cursor: pointer;
     transition: all ease 0.2s;
     right: 0;
     top: 16%;
 }
 .input-field button:hover{
-    background-color: rgb(225, 225, 225);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.562);
+    background-color: var(--sec-color);
 }
 .input-field button:active{
     scale: 0.95;
@@ -109,22 +160,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--text-color);
 }
 .list-items{
     margin-top: 25px;
     display: flex;
     justify-content: space-evenly;
     width: 80%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--text-color);
     /* align-items: center; */
 }
 input[type="checkbox"] {
     width: 37px;
     cursor: pointer;
+    color: #282828;
 }
 input[type="checkbox"]:checked ~ .todo-text{
     text-decoration: line-through;
-    color: var(--background);
+    color: var(--strike);
 }
 .list-items p{
     padding: 0 27px;
@@ -142,12 +195,13 @@ input[type="checkbox"]:checked ~ .todo-text{
 .list-items button:active{
     scale: 0.9;
 }
-.dustbin img {
-    width: 50px;
-    fill: rgb(43, 43, 43);
+.dustbin svg {
+    width: 40px;
+    height: 40px;
+    fill: rgb(97 97 97);
     transition: 0.2s all ease;
 }
-.dustbin img:hover{
+.dustbin svg:hover{
     scale: 1.1;
 }
 
