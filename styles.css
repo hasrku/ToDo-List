@@ -1,0 +1,214 @@
+:root{
+    --background: rgb(195, 195, 195);
+    --page-color: #ffffff;
+    --text-color:rgb(0, 0, 0);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.list-container{
+    display:flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--background);
+    background-image: url(images/adobe_design-modified.jpeg);
+    background-position: center;
+   
+}
+.page{
+    width: 100%;
+    margin: 35px 15%;
+    border-radius: 12px;
+    background-color: var(--page-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 40px;
+}
+.heading p{
+    font-family: amatic-bold;
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 10px;
+}
+.arrow{
+    width: 178px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(images/arrow-underline.jpg);
+    background-color: transparent;
+}
+.input-field{
+    margin-top: 20px;
+    position: relative;
+}
+.input-field input{
+    position: relative;
+    width: 30vw;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 5px 15px;
+    font-size: 1.7rem;
+    margin: 10px 0px;
+    font-family: handlee;
+}
+.placeIn{
+    position: absolute;
+    top: 27%;
+    left: 3%;
+    font-size: 1.6rem;
+    background-color: var(--page-color);
+    color: #00000061;
+    transition: all ease 0.3s;
+}
+.input-field input:focus + .placeIn{
+    top: -5%;
+    left: 2.7%;
+    width: 41px;
+    text-align: center;
+    color: black;
+    font-size: 0.9rem;
+}
+.input-field button{
+    position: absolute;
+    padding: 7px 8px;
+    font-size: 1.7rem;
+    border-radius: 7px;
+    border: 1px solid black;
+    background-color: var(--background);
+    cursor: pointer;
+    transition: all ease 0.2s;
+    right: 0;
+    top: 16%;
+}
+.input-field button:hover{
+    background-color: rgb(225, 225, 225);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.562);
+}
+.input-field button:active{
+    scale: 0.95;
+}
+
+
+.noItem{
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: handlee;
+}
+.list-og{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.list-items{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    border-bottom: 1px solid black;
+    /* align-items: center; */
+}
+input[type="checkbox"] {
+    width: 37px;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--background);
+}
+.list-items p{
+    padding: 0 27px;
+    font-size: 2.2rem;
+    flex-grow: 1;
+    text-align: left;
+    align-items: center;
+    font-family: handlee;
+}
+.list-items button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.list-items button:active{
+    scale: 0.9;
+}
+.dustbin img {
+    width: 50px;
+    fill: rgb(43, 43, 43);
+    transition: 0.2s all ease;
+}
+.dustbin img:hover{
+    scale: 1.1;
+}
+
+@media screen and (max-width: 850px){
+    
+    body{
+        background-image: url(images/adobe_design-modified.jpeg);
+    }
+    .list-container{
+        min-height: 80vh;
+        background-image: none;
+        background-color: transparent;
+    }
+    .page{
+        margin: 35px 4%;
+        min-height: 70vh;
+    }
+    .input-field input{
+        width: 65vw;
+        font-size: 1.2rem;
+    }
+    .placeIn{
+        font-size: 1.1rem;
+    }
+    .input-field button{
+        padding: 6px 8px;
+        font-size: 1.2rem;
+        top: 19%;
+    }
+    .heading p{
+        font-size: 2.5rem;
+    }
+    .arrow{
+        width: 119px;
+    }
+    input[type="checkbox"] {
+        width: 20px;
+    }
+    .list-items p{
+        padding: 0 27px;
+        font-size: 1.7rem;
+    }
+    .dustbin img {
+        width: 30px;
+    }
+    .list-items{
+        margin-top: 30px;
+        width: 90%;
+    }
+}
+
+/* accessibility */
+@font-face {
+    font-family: amatic-light;
+    src: url(fonts/AmaticSC-Regular.ttf);
+}
+@font-face {
+    font-family: amatic-bold;
+    src: url(fonts/AmaticSC-Bold.ttf);
+}
+@font-face {
+    font-family: handlee;
+    src: url(fonts/Handlee-Regular.ttf);
+}
