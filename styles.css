@@ -116,7 +116,7 @@
     left: 3%;
     font-size: 1.6rem;
     background-color: var(--page-color);
-    color: var(--text-color);
+    color: var(--strike);
     transition: all ease 0.3s;
 }
 .input-field input:focus + .placeIn{
@@ -192,9 +192,6 @@ input[type="checkbox"]:checked ~ .todo-text{
     background-color: transparent;
     cursor: pointer;
 }
-.list-items button:active{
-    scale: 0.9;
-}
 .dustbin svg {
     width: 40px;
     height: 40px;
@@ -203,6 +200,9 @@ input[type="checkbox"]:checked ~ .todo-text{
 }
 .dustbin svg:hover{
     scale: 1.1;
+}
+.dustbin svg:active{
+    scale: 0.93;
 }
 
 @media screen and (max-width: 850px){
