@@ -81,7 +81,7 @@ renderTodoList();
 const arrow = document.querySelector(".arrow");
 let darkmode = localStorage.getItem('darkmode')
 if(darkmode === "active") {
-  enableDarkmode();
+  arrow.style.backgroundImage = "url(images/arrow-underline-white.png)";
 }
 
 const themeSwitch = document.getElementById('theme-switch')
