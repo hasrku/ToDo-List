@@ -45,13 +45,11 @@ function renderTodoList() {
       todoList.forEach((todobj, index) => {
         const eleID = 'ID' +index;
         if(todobj.completed == true){
-          // console.log(todobj.completed);
           document.getElementById(`${eleID}`).checked = todobj.completed;
         }
       });
       
     store();
-    // console.log(todoList);
 }
 
 function addTodo() {
@@ -66,8 +64,6 @@ function addTodo() {
       completed: false
     }
     todoList.push(toObj);
-    
-    // console.log(todoList);
     inputElement.value = '';
   
     renderTodoList();
@@ -82,32 +78,32 @@ document.addEventListener("keydown", (ev) => {
 
 renderTodoList();
 
-let darkmode = localStorage.getItem('darkmode')
-const themeSwitch = document.getElementById('theme-switch')
 const arrow = document.querySelector(".arrow");
+let darkmode = localStorage.getItem('darkmode')
+if(darkmode === "active") {
+  enableDarkmode();
+}
 
+const themeSwitch = document.getElementById('theme-switch')
 const enableDarkmode = () => {
-  document.body.classList.add('darkmode')
-  localStorage.setItem('darkmode', 'active')
+  document.body.classList.add('darkmode');
+  localStorage.setItem('darkmode', 'active');
+  arrow.style.backgroundImage = "url(images/arrow-underline-white.png)";
 }
 
 const disableDarkmode = () => {
-  document.body.classList.remove('darkmode')
-  localStorage.setItem('darkmode', null)
+  document.body.classList.remove('darkmode');
+  localStorage.setItem('darkmode', null);
+  arrow.style.backgroundImage = "url(images/arrow-underline.jpg)";
 }
 
-if(darkmode === "active") {
-  enableDarkmode()
-  arrow.style.backgroundImage = "url(images/arrow-underline-white.png)";
-}
 themeSwitch.addEventListener("click", () => {
   darkmode = localStorage.getItem('darkmode')
   if (darkmode !== "active"){
     enableDarkmode();
-    arrow.style.backgroundImage = "url(images/arrow-underline-white.png)";
+    
   }
   else{
-    disableDarkmode()
-    arrow.style.backgroundImage = "url(images/arrow-underline.jpg)";
+    disableDarkmode();
   }
 })
